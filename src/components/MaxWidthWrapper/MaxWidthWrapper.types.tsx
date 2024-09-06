@@ -1,10 +1,5 @@
-import { ReactNode } from 'react';
+import { HTMLAttributes } from 'react';
 
-type MaxWidthWrapperPropsType = {
-  className?: string;
-  children: ReactNode;
-};
+interface MaxWidthWrapperProps extends HTMLAttributes<HTMLDivElement> {}
 
-type MaxWidthWrapperType = (props: MaxWidthWrapperPropsType) => ReactNode;
-
-export type { MaxWidthWrapperType };
+export type { MaxWidthWrapperProps };

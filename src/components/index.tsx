@@ -1,3 +1,5 @@
+import Image from './Image';
 import MaxWidthWrapper from './MaxWidthWrapper';
+import Phone from './Phone';
 
-export { MaxWidthWrapper };
+export { Image, MaxWidthWrapper, Phone };
