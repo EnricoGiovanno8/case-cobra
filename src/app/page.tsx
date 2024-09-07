@@ -1,5 +1,7 @@
-import { MaxWidthWrapper, Phone, Image, Icons, Reviews } from '@/components';
+import { MaxWidthWrapper, Phone, Icons, Reviews } from '@/components';
 import { Check, Star } from 'lucide-react';
+import Images from '../assets/Images';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -10,7 +12,7 @@ export default function Home() {
             <div className="relative mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
               <div className="absolute w-28 left-0 -top-20 hidden lg:block">
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t via-slate-50/50 from-slate-50 h-28" />
-                <Image src="/snake-1.png" alt="snake image" className="w-full" />
+                <Image src={Images.snakeOne} alt="snake image" className="w-full" />
               </div>
               <h1 className="relative w-fit tracking-tight text-balance mt-16 font-bold !leading-tight text-5xl md:text-6xl lg:text-7xl">
                 Your Image on a <span className="bg-green-600 px-2 text-white">Custom</span> Phone
@@ -42,27 +44,27 @@ export default function Home() {
                 <div className="flex -space-x-4">
                   <Image
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100"
-                    src="/users/user-1.png"
+                    src={Images.userOne}
                     alt="user image"
                   />
                   <Image
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100"
-                    src="/users/user-2.png"
+                    src={Images.userTwo}
                     alt="user image"
                   />
                   <Image
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100"
-                    src="/users/user-3.png"
+                    src={Images.userThree}
                     alt="user image"
                   />
                   <Image
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100"
-                    src="/users/user-4.jpg"
+                    src={Images.userFour}
                     alt="user image"
                   />
                   <Image
                     className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-100"
-                    src="/users/user-5.jpg"
+                    src={Images.userFive}
                     alt="user image"
                   />
                 </div>
@@ -87,16 +89,16 @@ export default function Home() {
           <div className="col-span-full lg:col-span-1 w-full flex justify-center px-8 sm:px-16 md:px-0 mt-32 lg:mx-0 lg:mt-20 h-fit">
             <div className="relative md:max-w-xl">
               <Image
-                src="/your-image.png"
+                src={Images.yourImage}
                 className="absolute w-40 lg:w-52 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block"
                 alt="your image"
               />
               <Image
-                src="/line.png"
+                src={Images.line}
                 className="absolute w-20 -left-6 -bottom-6 select-none"
                 alt="line image"
               />
-              <Phone className="w-64" imgSrc="/testimonials/1.jpg" />
+              <Phone className="w-64" imgSrc={Images.testimonialOne} />
             </div>
           </div>
         </MaxWidthWrapper>
@@ -113,7 +115,7 @@ export default function Home() {
               </span>{' '}
               say
             </h2>
-            <Image src="/snake-2.png" className="w-24 order-0 lg:order-2" alt="snake image 2" />
+            <Image src={Images.snakeTwo} className="w-24 order-0 lg:order-2" alt="snake image 2" />
           </div>
 
           <div className="mx-auto grid max-w-2xl grid-cols-1 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 gap-y-16">
@@ -137,7 +139,7 @@ export default function Home() {
               <div className="flex gap-4 mt-2">
                 <Image
                   className="rounded-full h-12 w-12 object-cover"
-                  src="/users/user-1.png"
+                  src={Images.userOne}
                   alt="user"
                 />
                 <div className="flex flex-col">
@@ -172,7 +174,7 @@ export default function Home() {
               <div className="flex gap-4 mt-2">
                 <Image
                   className="rounded-full h-12 w-12 object-cover"
-                  src="/users/user-4.jpg"
+                  src={Images.userFour}
                   alt="user"
                 />
                 <div className="flex flex-col">

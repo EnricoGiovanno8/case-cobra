@@ -5,7 +5,8 @@ import { useInView } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import Phone from '../Phone';
 import MaxWidthWrapper from '../MaxWidthWrapper';
-import Image from '../Image';
+import Image from 'next/image';
+import Images from '../../assets/Images';
 
 const PHONES = [
   '/testimonials/1.jpg',
@@ -145,7 +146,7 @@ const Reviews = () => {
     <MaxWidthWrapper className="relative max-w-5xl">
       <Image
         aria-hidden="true"
-        src="/what-people-are-buying.png"
+        src={Images.whatPeopleAreBuying}
         className="absolute select-none hidden xl:block -left-32 top-1/3"
         alt="portfolio"
         width={200}
