@@ -1,7 +1,9 @@
 import { MaxWidthWrapper, Phone, Icons, Reviews } from '@/components';
-import { Check, Star } from 'lucide-react';
+import { ArrowRight, Check, Star } from 'lucide-react';
 import Images from '../assets/Images';
 import Image from 'next/image';
+import Link from 'next/link';
+import { buttonVariants } from '@/components/ui/button';
 
 export default function Home() {
   return (
@@ -192,6 +194,64 @@ export default function Home() {
         <div className="pt-16">
           <Reviews />
         </div>
+      </section>
+
+      <section>
+        <MaxWidthWrapper className="py-24">
+          <div className="mb-12 px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl sm:text-center">
+              <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
+                Upload your photo and get{' '}
+                <span className="relative px-2 bg-green-600 text-white">your own case</span> now
+              </h2>
+            </div>
+          </div>
+
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="flex flex-col items-center justify-center md:flex-row">
+              <div className="h-80 md:h-full w-full md:justify-self-end max-w-sm rounded-xl bg-gray-900/5 ring-inset ring-gray-900/10 lg:rounded-2xl">
+                <Image
+                  src={Images.horse}
+                  alt="arrow"
+                  className="rounded-md object-cover bg-white shadow-2xl ring-1 ring-gray-900/10 h-full w-full"
+                />
+              </div>
+
+              <Image src={Images.arrow} alt="arrow" className="rotate-90 md:rotate-0 my-14 mx-5" />
+
+              <Phone className="w-60" imgSrc={Images.horsePhone} />
+            </div>
+          </div>
+          <ul className="mx-auto mt-12 max-w-prose sm:text-lg space-y-2 w-fit">
+            <li className="w-fit">
+              <Check className="h-5 w-5 text-green-600 inline mr-1.5" />
+              High-quality silicone material
+            </li>
+            <li className="w-fit">
+              <Check className="h-5 w-5 text-green-600 inline mr-1.5" />
+              Scratch- and fingerprint resistant coating
+            </li>
+            <li className="w-fit">
+              <Check className="h-5 w-5 text-green-600 inline mr-1.5" />
+              Wireless charging compatible
+            </li>
+            <li className="w-fit">
+              <Check className="h-5 w-5 text-green-600 inline mr-1.5" />5 year print warranty
+            </li>
+
+            <div className="flex justify-center">
+              <Link
+                className={buttonVariants({
+                  size: 'lg',
+                  className: 'mx-auto mt-8',
+                })}
+                href="/configure/upload"
+              >
+                Create your case now <ArrowRight className="h-4 w-4 ml-1.5" />
+              </Link>
+            </div>
+          </ul>
+        </MaxWidthWrapper>
       </section>
     </div>
   );
