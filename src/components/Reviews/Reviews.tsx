@@ -1,12 +1,13 @@
 'use client';
 
-import { HTMLAttributes, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useInView } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import Phone from '../Phone';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import Image from 'next/image';
 import Images from '../../assets/Images';
+import { ReviewColumnProps, ReviewProps } from './Reviews.types';
 
 const PHONES = [
   '/testimonials/1.jpg',
@@ -36,12 +37,7 @@ const ReviewColumn = ({
   className,
   reviewClassName,
   msPerPixel = 0,
-}: {
-  reviews: string[];
-  className?: string;
-  reviewClassName?: (reviewIndex: number) => string;
-  msPerPixel?: number;
-}) => {
+}: ReviewColumnProps) => {
   const columnRef = useRef<HTMLDivElement | null>(null);
   const [columnHeight, setColumnHeight] = useState(0);
   const duration = `${columnHeight * msPerPixel}ms`;
@@ -76,10 +72,6 @@ const ReviewColumn = ({
     </div>
   );
 };
-
-interface ReviewProps extends HTMLAttributes<HTMLDivElement> {
-  imgSrc: string;
-}
 
 const Review = ({ imgSrc, className, ...props }: ReviewProps) => {
   const POSSIBLE_ANIMATION_DELAYS = ['0s', '0.1s', '0.2s', '0.3s', '0.4s', '0.5s'];

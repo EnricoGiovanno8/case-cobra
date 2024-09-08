@@ -74,6 +74,7 @@ const Steps = () => {
                       'border-zinc-700': isCurrent,
                     })}
                     alt="snake image"
+                    priority={true}
                   />
                 </span>
 
