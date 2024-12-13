@@ -10,13 +10,23 @@ import { Rnd } from 'react-rnd';
 import HandleComponent from '../HandleComponent';
 import { ScrollArea } from '../ui/scroll-area';
 import { Label, Radio, RadioGroup, Fieldset } from '@headlessui/react';
-import { COLORS } from '@/validators/option-validator';
+import { COLORS, MODELS } from '@/validators/option-validator';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '../ui/dropdown-menu';
+import { Button } from '../ui/button';
+import { ChevronsUpDown } from 'lucide-react';
 
 const DesignConfigurator = ({ imageUrl, imageDimensions }: DesignConfiguratorProps) => {
   const [options, setOptions] = useState<{
     color: (typeof COLORS)[number];
+    model: (typeof MODELS.options)[number];
   }>({
     color: COLORS[0],
+    model: MODELS.options[0],
   });
   return (
     <div className="relative mt-20 grid grid-cols-1 lg:grid-cols-3 mb-20 pb-20">
@@ -112,6 +122,28 @@ const DesignConfigurator = ({ imageUrl, imageDimensions }: DesignConfiguratorPro
 
                 <div className="relative flex flex-col gap-3 w-full">
                   <Label>Model</Label>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="outline" role="combobox" className="w-full justify-between">
+                        {options.model.label}
+                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      {MODELS.options.map((model) => (
+                        <DropdownMenuItem
+                          key={model.label}
+                          className={cn(
+                            'flex text-sm gap-1 items-center p-1.5 cursor-default hover:bg-zinc-100',
+                            { 'bg-zinc-100': model.label === options.model.label }
+                          )}
+                          onSelect={() => setOptions((prev) => ({ ...prev, model }))}
+                        >
+                          {model.label}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
               </Fieldset>
             </div>
