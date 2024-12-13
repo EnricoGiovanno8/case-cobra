@@ -1,10 +1,12 @@
-interface Configuration {
+interface BaseConfiguration {
   id: string;
   width: number;
   height: number;
   imageUrl: string;
-  croppedImageUrl?: string;
+  croppedImageUrl: string | null;
 }
+
+type Configuration = BaseConfiguration | null;
 
 interface PageProps {
   params: {

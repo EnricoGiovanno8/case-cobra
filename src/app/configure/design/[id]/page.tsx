@@ -2,7 +2,7 @@ import React from 'react';
 import { Configuration, PageProps } from './page.types';
 import { notFound } from 'next/navigation';
 import { db } from '@/db';
-import { DesignConfigurator } from '../../../../components';
+import { DesignConfigurator } from '@/components';
 
 const Page = async ({ params }: PageProps) => {
   const { id } = params;
@@ -19,9 +19,9 @@ const Page = async ({ params }: PageProps) => {
     notFound();
   }
 
-  const {} = configuration;
+  const { imageUrl, width, height } = configuration;
 
-  return <DesignConfigurator />;
+  return <DesignConfigurator configId={id} imageDimensions={{ width, height }} imageUrl={imageUrl} />;
 };
 
 export default Page;
